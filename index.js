@@ -4,7 +4,7 @@ var moment = require('moment');
 
 app.get('*', function(req, res, next) {
     var query = decodeURIComponent(req.path.replace('/', ''));
-    if (query.match(/\d+/)) {
+    if (/\d{10}/.test(query)) {
         query*=1000;
     }
     var date = new Date(query);
